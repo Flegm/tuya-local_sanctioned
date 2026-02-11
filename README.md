@@ -4,10 +4,8 @@
 
 ---
 
-Please report any [issues](https://github.com/make-all/tuya-local/issues) and feel free to raise [pull requests](https://github.com/make-all/tuya-local/pulls).
-[Many others](https://github.com/make-all/tuya-local/blob/main/ACKNOWLEDGEMENTS.md) have contributed their help already.
-
-[![BuyMeCoffee](https://www.buymeacoffee.com/assets/img/custom_images/orange_img.png)](https://www.buymeacoffee.com/jasonrumney)
+Please report any [issues](https://github.com/Flegm/tuya-local_sanctioned/issues) and feel free to raise [pull requests](https://github.com/Flegm/tuya-local_sanctioned/pulls).
+[Many others](https://github.com/Flegm/tuya-local_sanctioned/blob/main/ACKNOWLEDGEMENTS.md) have contributed their help already.
 
 This is a Home Assistant integration to support devices running Tuya
 firmware without going via the Tuya cloud.  Devices are supported
@@ -83,9 +81,9 @@ to Home Assistant. Other limitations will apply to this, so you might want
 to try both, and only use this integration for devices that are not working
 properly over Matter.
 
-A list of currently supported devices can be found in the [DEVICES.md](https://github.com/make-all/tuya-local/blob/main/DEVICES.md) file.
+A list of currently supported devices can be found in the [DEVICES.md](DEVICES.md) file.
 
-Documentation on building a device configuration file is in [/custom_components/tuya_local/devices/README.md](https://github.com/make-all/tuya-local/blob/main/custom_components/tuya_local/devices/README.md)
+Documentation on building a device configuration file is in [custom_components/tuya_local/devices/README.md](custom_components/tuya_local/devices/README.md).
 
 If your device is not listed, you can find the information required to add a configuration for it in the following locations:
 
@@ -98,35 +96,40 @@ If you file an issue to request support for a new device, please include the fol
 2. As much information on the datapoints you can gather using the above methods.
 3. If manuals or webpages are available online, links to those help understand how to interpret the technical info above - even if they are not in English automatic translations can help, or information in them may help to identify identical devices sold under other brands in other countries that do have English or more detailed information available.
 
-If you submit a pull request, please understand that the config file naming and details of the configuration may get modified before release - for example if your name was too generic, I may rename it to a more specific name, or conversely if the device appears to be generic and sold under many brands, I may change the brand specific name to something more general.  So it may be necessary to remove and re-add your device once it has been integrated into a release.
+If you submit a pull request, please understand that the config file naming and details of the configuration may get modified before release.
 
 ---
 
 ## Installation
 
-[![hacs_badge](https://img.shields.io/badge/HACS-Custom-orange.svg?style=for-the-badge)](https://github.com/hacs/integration)
+This fork is **not** in HACS. Install manually:
 
-Installation is easiest via the [Home Assistant Community Store
-(HACS)](https://hacs.xyz/), which is the best place to get third-party
-integrations for Home Assistant. Once you have HACS set up, simply click the button below (requires My Homeassistant configured) or
-follow the [instructions for adding a custom
-repository](https://hacs.xyz/docs/faq/custom_repositories) and then
-the integration will be available to install like any other.
+1. **Download this repository**  
+   - Either clone: `git clone https://github.com/Flegm/tuya-local_sanctioned.git`  
+   - Or [download the ZIP](https://github.com/Flegm/tuya-local_sanctioned/archive/refs/heads/main.zip) and unpack it.
 
-[![Open your Home Assistant instance and open a repository inside the Home Assistant Community Store.](https://my.home-assistant.io/badges/hacs_repository.svg)](https://my.home-assistant.io/redirect/hacs_repository/?owner=make-all&repository=tuya-local&category=integration)
+2. **Copy the integration into Home Assistant**  
+   - Copy the folder `custom_components/tuya_local` from this repo into your Home Assistant **config** directory, so that you have:
+     - `<config>/custom_components/tuya_local/`
+   - On Home Assistant OS / Supervised, the config directory is usually `/config` (e.g. accessible via Samba or the File editor add-on).
+
+3. **Restart Home Assistant**  
+   - Settings → System → Restart.
+
+4. **Add the integration**  
+   - Settings → Devices & Services → Add Integration → search for **Tuya Local** → configure your device.
+
+To **update**: replace the contents of `custom_components/tuya_local` with the latest version from this repo, then restart Home Assistant.
 
 ## Configuration
 
-After installing, you can easily configure your devices using the Integrations configuration UI.  Go to Settings / Devices & Services and press the Add Integration button, or click the shortcut button below (requires My Homeassistant configured).
-
-[![Add Integration to your Home Assistant
-instance.](https://my.home-assistant.io/badges/config_flow_start.svg)](https://my.home-assistant.io/redirect/config_flow_start/?domain=tuya_local)
+After installing, configure your devices via **Settings → Devices & Services → Add Integration** and select **Tuya Local**.
 
 ### Choose your configuration path
 
 There are two options for configuring a device:
 - You can login to Tuya cloud with the Tuya or SmartLife app and retrieve a list of devices and the necessary local connection data.
-- You can provide all the necessary information manually [as per the instructions in DEVICES_DETAILS.md](DEVICE_DETAILS.md#finding-your-device-id-and-local-key).
+- You can provide all the necessary information manually [as per the instructions in DEVICE_DETAILS.md](DEVICE_DETAILS.md#finding-your-device-id-and-local-key).
 
 The first choice essentially automates all the manual steps of the second and without needing to create a Tuya IOT developer account. This is especially important now that Tuya has started time limiting access to a key data access capability in the IOT developer portal to only a month with the ability to refresh the trial of that only every 6 months.
 
