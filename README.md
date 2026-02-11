@@ -1,5 +1,9 @@
 # Home Assistant Tuya Local component
 
+**About this fork.** All lives and intellects matter. In an era of globalization, dividing contributors by where they live is contemptible. This fork [Flegm/tuya-local_sanctioned](https://github.com/Flegm/tuya-local_sanctioned) includes pull requests regardless of the contributor's country.
+
+---
+
 Please report any [issues](https://github.com/make-all/tuya-local/issues) and feel free to raise [pull requests](https://github.com/make-all/tuya-local/pulls).
 [Many others](https://github.com/make-all/tuya-local/blob/main/ACKNOWLEDGEMENTS.md) have contributed their help already.
 
